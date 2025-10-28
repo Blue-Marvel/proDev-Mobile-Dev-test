@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter_creditchek/src/secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -8,19 +7,10 @@ import 'utils/crypto_helper.dart';
 
 class CreditChekClient {
   final String _token;
-  var _storage = SecureDataStorage();
-  var _crypto = CryptoHelper();
-  var _connectivity = Connectivity();
-  var _httpClient = http.Client();
+  final _storage = SecureDataStorage();
+  final _crypto = CryptoHelper();
 
   CreditChekClient._(this._token);
-
-  // Visible for testing
-  void testSetStorage(SecureDataStorage storage) => _storage = storage;
-  void testSetCrypto(CryptoHelper crypto) => _crypto = crypto;
-  void testSetConnectivity(Connectivity connectivity) =>
-      _connectivity = connectivity;
-  void testSetHttp(http.Client client) => _httpClient = client;
 
   /// Initialize SDK with token
   static Future<CreditChekClient> initialize(String token) async {
@@ -37,13 +27,9 @@ class CreditChekClient {
     final cacheKey = 'credit_report_$bvn';
     if (connectivityResult.contains(ConnectivityResult.none)) {
       // No internet, return decrypted cached data
-      log('No internet, returning cached data');
       final encryptedData = await _storage.get(cacheKey);
-      log(encryptedData.toString());
       if (encryptedData == null) return null;
-      log(" Encrypted data: $encryptedData");
       final decrypted = _crypto.decryptData(encryptedData);
-      log(decrypted.toString());
       return CreditReport.fromJson(jsonDecode(decrypted));
     }
 
@@ -57,9 +43,6 @@ class CreditChekClient {
       throw Exception('Invalid token');
     }
 
-    log(response.headers.toString());
-
-    log(response.toString());
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
 

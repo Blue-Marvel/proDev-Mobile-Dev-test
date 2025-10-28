@@ -31,7 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_creditchek:
-    path: /Users/marvel/Documents/flutter/sdks/flutter_creditchek
+    git:
+      url: https://github.com/Blue-Marvel/flutter_creditchek.git
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

@@ -153,9 +153,11 @@ packages:
   flutter_creditchek:
     dependency: "direct main"
     description:
-      path: "/Users/marvel/Documents/flutter/sdks/flutter_creditchek"
-      relative: false
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: c69b661f8e8a8caee081c7b9ec1663aa47fbabc8
+      url: "https://github.com/Blue-Marvel/flutter_creditchek.git"
+    source: git
     version: "0.0.1"
   flutter_lints:
     dependency: "direct dev"
