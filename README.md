@@ -25,7 +25,7 @@ Add the SDK to your pubspec.yaml:
 dependencies:
 flutter_creditchek:
 git:
-url: https://github.com/your-username/flutter_creditchek.git
+url: https://github.com/Blue-Marvel/proDev-Mobile-Dev-test/tree/main/flutter_creditchek
 
 Then run:
 
