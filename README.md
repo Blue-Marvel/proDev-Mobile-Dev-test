@@ -24,7 +24,8 @@ Add the SDK to your `pubspec.yaml` file:
 dependencies:
   flutter_creditchek:
     git:
-      url: https://github.com/your-username/flutter_creditchek.git
+      url: https://github.com/Blue-Marvel/flutter_creditchek.git
+
 ```
 
 ### Option 2: Install from pub.dev (when published)
