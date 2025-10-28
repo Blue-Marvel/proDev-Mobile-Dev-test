@@ -37,7 +37,6 @@ class _MyAppState extends State<MyApp> {
               return const Center(child: CircularProgressIndicator());
             }
             if (snapshot.hasError) {
-              print(snapshot.error);
               return Center(child: Text('Error: ${snapshot.error}'));
             }
             final report = snapshot.data;
